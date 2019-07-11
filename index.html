@@ -1,255 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>all</title>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        .navbar{
-            width: 365px;
-            height: 100vh;
-            background-color: #60A9F7;
-            float: left;
-        }
-        .navbar .logo{
-            width: 150px;
-            height: 150px;
-            margin: 40px auto;
-            background-image: url(pic/logo.jpg);
-            background-size: cover;
-            background-position: center;
-        }
-        .navbar .btnsection{
-            width: 150px;
-            margin: 0 auto;
-        }
-        .navbar .btnsection li{
-            text-align: center;
-            margin: 5px;
-            padding: 5px;
-            list-style-type: none;
-        }
-        .navbar .btnsection li a{
-            color: white;
-            font-family: "Microsoft JhengHei";
-            font-size: 18pt;
-            transition-duration: 0.2s;
-        }
-        .main{
-            width: calc(100vw - 365px);
-            height: 100vh;
-            float: left;
-            background-color: #343941;
-            padding: calc(50vh - 285px) 0;
-        }
-        .main .box{
-            width: 915px;
-            height: 570px;
-            margin: 0 auto;
-        }
-        .main .box .block{
-            height: 100%;
-            float: left;
-        }
-        .main .box .a{
-            width: calc(33% - 5px);
-            margin-right: 10px;
-            background-image: url(pic/a.jpg);
-            background-size: cover;
-            background-position: center;
-            opacity: 0.5;
-            transition-duration: 0.5s;
-            transition-delay: 0.2s;
-        }
-        .main .box .b{
-            width: calc(34% - 10px);
-            margin-right: 10px;
-            background-image: url(pic/b.jpg);
-            background-size: cover;
-            background-position: center;
-            opacity: 0.5;
-            transition-duration: 0.5s;
-            transition-delay: 0.2s;
-        }
-        .main .box .c{
-            width: calc(33% - 5px);
-            background-image: url(pic/c.jpg);
-            background-size: cover;
-            background-position: center;
-            opacity: 0.5;
-            transition-duration: 0.5s;
-            transition-delay: 0.2s;
-        }
-        .navbar .btnsection li a:hover{
-            font-size: 20pt;
-            background-color: rgba(0, 0, 0, 0.3);
-            border-radius: 5px;
-        }
-        .navbar .btnsection li a:active{
-            color: darkblue;
-        }
-        .navbar .btnsection li a:visited{
-            color: purple;
-        }
-        .main .box .a:hover, .main .box .b:hover, .main .box .c:hover{
-            opacity: 1;
-            transform:scale(1.02,1.02);
-        }
-        @media screen and (max-width: 1280px){
-            .main .box{
-                width: 403px;
-            }
-            .main .box .a{
-                width: 100%;
-                height: calc(50% - 5px);
-                margin-bottom: 10px;
-            }
-            .main .box .b{
-                height: 50%;
-                width: calc(50% - 5px);
-            }
-            .main .box .c{
-                height: 50%;
-                width: calc(50% - 5px);
-            }
-        }
-        @media screen and (max-width: 768px){
-            .container{
-                width: 768px;
-            }
-            .navbar{
-                width: 100%;
-                height: 100px;
-            }
-            .navbar .logo{
-                width: 80px;
-                height: 80px;
-                float: left;
-                margin-top: 10px;
-                margin-left: 5vw;
-            }
-            .navbar .btnsection{
-                width: auto;
-                margin-right: 5vw;
-                float: right;
-            }
-            .navbar .btnsection li{
-                float: left;
-                margin: 0;
-                padding: 0;
-                margin-top: 33px;
-                margin-left: 10px;
-            }
-            .main{
-                width: 100%;
-                height: 924px;
-                padding:0;
-                padding-top: 62px;
-            }
-            .main .box{
-                width: 90%;
-                height: 800px;
-                margin: 0 auto;
-            }
-            .main .box .a{
-                width: 100%;
-                height: calc(50% - 5px);
-                margin-bottom: 10px;
-            }
-            .main .box .b{
-                width: calc(50% - 5px);
-                height: calc(50% - 5px);
-            }
-            .main .box .c{
-                width: calc(50% - 5px);
-                height: calc(50% - 5px);
-            }
-        }
-        @media screen and (max-width: 375px){
-            .container{
-                width: 375px;
-            }
-            .navbar{
-                width: 100%;
-                height: 80px;
-            }
-            .navbar .logo{
-                width: 50px;
-                height: 50px;
-                float: left;
-                margin: 0;
-                margin-top: 15px;
-                margin-bottom: 15px;
-                position: relative;
-                left: calc(50% - 25px);
-            }
-            .navbar .btnsection{
-                width: 40px;
-                height: 50px;
-                margin: 15px 10px;
-                background-color: #343941;
-                float: none;
-            }
-            .navbar .btnsection li{
-                display: none;
-            }
-            .navbar .btnsection li a{
-                display: none;
-            }
-            .main{
-                width: 100%;
-                height: 587px;
-                padding: 0;
-            }
-            .main .box{
-                width: 100%;
-                height: 100%;
-            }
-            .main .box .a{
-                width: 100%;
-                height: 33%;
-                margin: 0;
-            }
-            .main .box .b{
-                width: 100%;
-               height: 34%;
-            }
-            .main .box .c{
-                width: 100%;  
-                height: 33%;
-            }
-        }
-    </style>
+    <title>Onepage</title>
+    <link rel="stylesheet" href="01.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
 </head>
+
 <body>
-    <div class="container">
-        <nav class="navbar">
-            <div class="logo"></div>
-            <ul class="btnsection">
-                <li>
-                    <a href="https://ysolife.com/tame-impala-currents-cover-art/" target="_blank">樂團成員</a>
-                </li>
-                <li>
-                    <a href="https://www.illusiveheaven.com/tameimpala/" target="_blank">成軍歷史</a>
-                </li>
-                <li>
-                   <a href="https://www.mymusic.net.tw/ux/w/singer/show/57306" target="_blank">發行專輯</a> 
-                </li>
-            </ul>
-        </nav>
-        <div class="main">
-            <div class="box">
-                <div class="block a"></div>
-                <div class="block b"></div>
-                <div class="block c"></div>
+    <div class="banner"></div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide a"></div>
+            <div class="swiper-slide b"></div>
+            <div class="swiper-slide c"></div>
+        </div>
+    </div>
+    <nav class="navbar">
+        <ul class="navbar-section">
+            <li class="section-btn a"><a href="#director" style="text-decoration:none">Director</a></li>
+            <li class="section-btn b"><a href="#info" style="text-decoration:none">Info</a></li>
+            <li class="section-btn c"><a href="#story" style="text-decoration:none">Story</a></li>
+            <li class="section-btn d"><a href="#cast" style="text-decoration:none">Cast</a></li>
+        </ul>
+    </nav>
+    <section id="director">
+        <div class="container">
+            <div class="section-pic"></div>
+            <div class="section-box">
+                <h1 class="section-title">Director</h1>
+                <p class="section-content">Quentin Jerome Tarantino is an American filmmaker and actor. His films are
+                    characterized by nonlinear storylines, satirical subject matter, an aestheticization of violence,
+                    extended scenes of dialogue, ensemble casts consisting of established and lesser-known performers,
+                    references to popular culture and a wide variety of other films, soundtracks primarily containing
+                    songs and score pieces from the 1960s to the 1980s, and features of neo-noir film.</p>
             </div>
         </div>
-    </div> 
+    </section>
+    <section id="info">
+        <div class="containerx">
+            <div class="section-pic L">
+                <div class="section-box">
+                    <h3 class="section-title">Release Date</h3>
+                    <p class="section-content">Once Upon a Time in Hollywood will hit UK cinemas on 14th August 2019. It
+                        gets an American release a few weeks earlier on 26th July 2019. The film premiered at the Cannes
+                        Film Festival 2019 on Tuesday 21st May, and Tarantino has gone full Marvel with regards to
+                        spoilers.</p>
+                </div>
+            </div>
+            <div class="section-pic R">
+                <div class="section-box">
+                    <h3 class="section-title">Reviews</h3>
+                    <p class="section-content">Reviews of Once Upon a Time in Hollywood have been extremely positive.
+                        Both The Guardian and The Telegraph awarded the film five stars, with the former’s critic Peter
+                        Dowling describing the movie as “shocking, gripping, dazzlingly shot” and “entirely outrageous,
+                        disorientating, irresponsible, and also brilliant”.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="story">
+        <div class="container">
+            <h1 class="section-title">Story</h1>
+            <p class="section-content">Plot details have been kept largely under wraps for Once Upon a Time in
+                Hollywood, but Tarantino has previously said that the film will be “a story that takes place in Los
+                Angeles in 1969, at the height of hippy Hollywood.
+                <br>
+                <br>
+                The two lead characters are Rick Dalton (DiCaprio), former star of a Western TV series, and his longtime
+                stunt double Cliff Booth (Pitt). Both are struggling to make it in a Hollywood they don’t recognise
+                anymore. But Rick has a very famous next-door neighbour… Sharon Tate.”
+                <br>
+                <br>
+                This latest trailer gives a better idea of the plot, with Dalton worried he’s become a has-been and
+                Pitt’s Booth introduced to Manson and his “family”.</p>
+        </div>
+    </section>
+    <section id="cast">
+        <div class="container">
+            <div class="block L">
+                <div class="section-pic a"></div>
+                <p class="section-content">An actor who starred in the television Western series Bounty Law from 1958 to
+                    1963. His attempt to transition to movies failed and in 1969 he is struggling, doing guest roles on
+                    other people's programs.</p>
+            </div>
+            <div class="block M">
+                <div class="section-pic b"></div>
+                <p class="section-content">A Vietnam War veteran and Rick's longtime stunt double and best friend. Booth
+                    is based on Hal Needham.</p>
+            </div>
+            <div class="block R">
+                <div class="section-pic c"></div>
+                <p class="section-content">A pregnant actress married to director Roman Polanski. Robbie did not consult
+                    with Polanski in preparation for the role, but read his 1985 autobiography Roman by Polanski.</p>
+            </div>
+        </div>
+    </section>
+    <footer class="footer"></footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container');
+    </script>
 </body>
 </html>

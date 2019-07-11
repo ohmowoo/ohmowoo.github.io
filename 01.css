@@ -1,0 +1,223 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Tahoma;
+}
+body{
+    background-color: rgb(31, 49, 43);
+}
+.swiper-container {
+    max-width: 1920px;
+    height: calc(100vh - 100px);
+    margin: 0 auto;
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.swiper-wrapper .a{
+    background-image: url(pic/bannera.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.swiper-wrapper .b{
+    background-image: url(pic/bannerb.png);
+    background-size: cover;
+    background-position: center;
+}
+.swiper-wrapper .c{
+    background-image: url(pic/bannerc.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.navbar{
+    max-width: 1920px;
+    height: 100px;
+    background-color: #2E4E49;
+    margin: 0 auto;
+}
+.navbar .navbar-section{
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+}
+.navbar .navbar-section .section-btn{
+    width: 150px;
+    height: 80%;
+    list-style-type: none;
+    float: left;
+    background-color: #476C5C;
+    text-align: center;
+    line-height: 80px;
+    font-size: 35px;
+    font-weight: 900;
+    border-radius: 30px;
+    color: #EDEADB;
+    margin-top: 10px;
+}
+.navbar .navbar-section .section-btn:hover{
+    background-color: #EDEADB;
+    color: #476C5C;
+}
+.navbar .navbar-section .section-btn:visited{
+    color: #EDEADB;
+}
+.navbar .navbar-section .b, .navbar .navbar-section .c{
+    margin-left: 200px;
+}
+.navbar .navbar-section .d{
+    float: right;   
+}
+.container{
+    max-width: 1200px;
+    height: 85vh;
+    background-color: #2A3F38;
+    margin: 0 auto;
+}
+#director .section-pic{
+    width: calc(50% - 70px);
+    height: calc(100% - 80px);
+    float: left;
+    background-image: url(pic/director.png);
+    background-size: cover;
+    background-position: center;
+    margin: 40px 20px 40px 50px;
+}
+#director .section-box{
+    width: calc(50% - 70px);
+    height: calc(100% - 80px);
+    float: left;
+    margin: 40px 50px 40px 20px;
+    font-size: 30px;
+    line-height: 50px;
+    text-align: justify;
+    color: #EDEADB;
+}
+#director .section-title{
+    font-size: 40px;
+    line-height: 100px;
+    font-weight: 900;
+    color: #C18939;
+}
+#info .containerx{
+    max-width: 1920px;
+    height: 85vh;
+    background-color: #2A3F38;
+    margin: 0 auto;
+}
+#info .section-pic{
+    width: 50%;
+    height: 100%;
+    float: left;
+    padding: 60px;
+}
+
+#info .L{
+    background-image: url(pic/press.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#info .R{
+    background-image: url(pic/press2.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#info .section-box{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 150px;
+}
+#info .section-title{
+    text-align: center;
+    line-height: 100px;
+    font-size: 40px;
+    font-weight: 900;
+    color: #C18939;
+}
+#info .section-content{
+    font-size: 25px;
+    line-height: 40px;
+    text-align: justify;
+    color: #EDEADB;
+}
+#story .section-title{
+    text-align: center;
+    line-height: 200px;
+    font-size: 40px;
+    font-weight: 900;
+    color: #C18939;
+}
+#story .section-content{
+    font-size: 25px;
+    line-height: 40px;
+    margin: 0 60px;
+    text-align: justify;
+    color: #EDEADB;
+}
+#cast .block{
+    width: 32%;
+    height: 100%;
+    float: left;
+    padding-top: 10px;
+}
+#cast .L{
+    margin: 0 6px 0 12px;
+}
+#cast .M{
+    margin: 0 6px 0 6px;
+}
+#cast .R{
+    margin: 0 12px 0 6px;
+}
+#cast .section-pic{
+    width: 100%;
+    height: 50%;
+    float: left;
+}
+#cast .a{
+    background-image: url(pic/a.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#cast .b{
+    background-image: url(pic/b.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#cast .c{
+    background-image: url(pic/c.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#cast .section-content{
+    width: 100%;
+    height: 50%;
+    float: left;
+    font-size: 25px;
+    line-height: 40px;
+    padding: 30px;
+    text-align: justify;
+    color: #EDEADB;
+}
+.footer{
+    max-width: 1920px;
+    height: 100px;
+    background-color: #2E4E49;
+    margin: 0 auto;
+}
