@@ -67,14 +67,9 @@ body{
     font-size: 35px;
     font-weight: 900;
     border-radius: 30px;
-    color: #EDEADB;
     margin-top: 10px;
 }
-.navbar .navbar-section .section-btn:hover{
-    background-color: #EDEADB;
-    color: #476C5C;
-}
-.navbar .navbar-section .section-btn:visited{
+.navbar .navbar-section .link{
     color: #EDEADB;
 }
 .navbar .navbar-section .b, .navbar .navbar-section .c{
@@ -82,6 +77,13 @@ body{
 }
 .navbar .navbar-section .d{
     float: right;   
+}
+.navbar .navbar-section .section-btn:hover{
+    background-color: #EDEADB;
+    color: #476C5C;
+}
+.navbar .navbar-section .link:hover{
+    color: #476C5C;
 }
 .container{
     max-width: 1200px;

@@ -13,12 +13,20 @@
 </head>
 <body>
     <h1 class="title">Hello</h1>
+    <!-- btn點擊會呼叫函式 -->
     <button onclick="btn_click(), console.log('test');">點我</button>
     <script>
         function btn_click() {
             var firstTitle = document.querySelector(".title");
-            firstTitle.textContent = 'Hello world!!!';
-            console.log(firstTitle.textContent);
+            var newTitle = firstTitle.textContent;
+            // 判斷式newTitle是否等於Hello
+            if(newTitle == 'Hello'){
+                firstTitle.textContent = 'Hello World';
+                firstTitle.style.color = 'red';
+            }else{
+                firstTitle.textContent = 'Hello';
+                firstTitle.style.color = 'blue';
+            }
         }
     </script>
 </body>

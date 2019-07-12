@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #container {
+            width: 600px;
+        }
+
+        /* 通常div不用設定 default setting width就是100% */
+        .topsection img {
+            width: 100%;
+        }
+
+        .btmsection {
+            display: flex;
+        }
+
+        .btmsection .block {
+            width: 25%;
+            padding: 10px;
+        }
+
+        .btmsection img {
+            width: 100%;
+        }
+        .show{
+            display: block;
+        }
+        .hidden{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="topsection">
+            <div class="show" id="top_pica">
+                <img src="pic/bannera.jpg" alt="">
+            </div>
+            <div class="hidden" id="top_picb">
+                <img src="pic/bannerb.png" alt="">
+            </div>
+            <div class="hidden" id="top_picc">
+                <img src="pic/bannerc.jpg" alt="">
+            </div>
+            <div class="hidden" id="top_picd">
+                <img src="pic/director.png" alt="">
+            </div>
+        </div>
+        <div class="btmsection">
+            <div class="block" id="pic_a">
+                <img src="pic/bannera.jpg" alt="">
+            </div>
+            <div class="block" id="pic_b">
+                <img src="pic/bannerb.png" alt="">
+            </div>
+            <div class="block" id="pic_c">
+                <img src="pic/bannerc.jpg" alt="">
+            </div>
+            <div class="block" id="pic_d">
+                <img src="pic/director.png" alt="">
+            </div>
+        </div>
+    </div>
+    <script>
+        var pic_a = document.querySelector('#pic_a');
+        var pic_b = document.querySelector('#pic_b');
+        var pic_c = document.querySelector('#pic_c');
+        var pic_d = document.querySelector('#pic_d');
+        var top_pica = document.querySelector('#top_pica');
+        var top_picb = document.querySelector('#top_picb');
+        var top_picc = document.querySelector('#top_picc');
+        var top_picd = document.querySelector('#top_picd');
+
+        function showhidden() {
+            top_pica.classList.add('hidden');
+            top_picb.classList.add('hidden');
+            top_picc.classList.add('hidden');
+            top_picd.classList.add('hidden');
+            top_pica.classList.remove('show');
+            top_picb.classList.remove('show');
+            top_picc.classList.remove('show');
+            top_picd.classList.remove('show');
+        }
+        pic_a.onclick = function () {
+            showhidden();
+            top_pica.classList.add('show');
+            top_pica.classList.remove('hidden');
+        }
+        pic_b.onclick = function () {
+            showhidden();
+            top_picb.classList.add('show');
+            top_picb.classList.remove('hidden');
+        }
+        pic_c.onclick = function () {
+            showhidden();
+            top_picc.classList.add('show');
+            top_picc.classList.remove('hidden');
+        }
+        pic_d.onclick = function () {
+            showhidden();
+            top_picd.classList.add('show');
+            top_picd.classList.remove('hidden');
+        }
+    </script>
+</body>
+
+</html>
