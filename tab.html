@@ -22,30 +22,42 @@
         .tab_section {
             width: 70%;
             height: 10%;
-            background-color: coral;
             display: flex;
         }
-        .tab_section .block{
+
+        .tab_section .block {
             width: 33%;
-            background-color: aqua;
             text-align: center;
             line-height: 40px;
+            background-color: rgb(231, 238, 245);
+            margin-right: 10px;
         }
-        .content_section{
+
+        .content_section {
             width: 100%;
             height: 90%;
-            background-color: burlywood;
         }
-        .content_section .content{
+
+        .content_section div {
             width: 100%;
             height: 100%;
-            background-color: crimson;
+            background-color: rgb(192, 217, 245);
+            text-align: center;
+            line-height: 360px;
         }
-        .show{
+
+        .show {
             display: block;
         }
-        .hidden{
+
+        .hidden {
             display: none;
+        }
+
+        @media screen and (max-width: 375px){
+            .tab_section{
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -64,13 +76,53 @@
             </div>
         </div>
         <div class="content_section">
-            <div class="content">aaaaaaa</div>
-            <div class="content">bbbbbbb</div>
-            <div class="content">ccccccc</div>
+            <div class="show" id="contentA">aaaaaaa</div>
+            <div class="hidden" id="contentB">bbbbbbb</div>
+            <div class="hidden" id="contentC">ccccccc</div>
         </div>
     </div>
     <script>
-        var 
+        var tabA = document.querySelector('#tabA');
+        var tabB = document.querySelector('#tabB');
+        var tabC = document.querySelector('#tabC');
+        var contentA = document.querySelector('#contentA');
+        var contentB = document.querySelector('#contentB');
+        var contentC = document.querySelector('#contentC');
+
+        function hidden() {
+            contentA.classList.add('hidden');
+            contentB.classList.add('hidden');
+            contentC.classList.add('hidden');
+            contentA.classList.remove('show');
+            contentB.classList.remove('show');
+            contentC.classList.remove('show');
+        }
+        tabA.onclick = function () {
+            hidden();
+            contentA.classList.add('show');
+            contentA.classList.remove('hidden');
+            tabA.style.backgroundColor = 'rgb(192, 217, 245)';
+            tabB.style.backgroundColor = 'rgb(231, 238, 245)';
+            tabC.style.backgroundColor = 'rgb(231, 238, 245)';
+        }
+        tabB.onclick = function () {
+            hidden();
+            contentB.classList.add('show');
+            contentB.classList.remove('hidden');
+            tabB.style.backgroundColor = 'rgb(192, 217, 245)';
+            tabB.style.backgroundColor = 'rgb(192, 217, 245)';
+            tabA.style.backgroundColor = 'rgb(231, 238, 245)';
+            tabC.style.backgroundColor = 'rgb(231, 238, 245)';
+        }
+        tabC.onclick = function () {
+            hidden();
+            contentC.classList.add('show');
+            contentC.classList.remove('hidden');
+            tabC.style.backgroundColor = 'rgb(192, 217, 245)';
+            tabC.style.backgroundColor = 'rgb(192, 217, 245)';
+            tabA.style.backgroundColor = 'rgb(231, 238, 245)';
+            tabB.style.backgroundColor = 'rgb(231, 238, 245)';
+        }
     </script>
 </body>
 
