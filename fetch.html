@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft JhengHei";
+        }
+
+        body {
+            background-color: rgb(67, 134, 211);
+        }
+
+        .card {
+            width: 300px;
+            height: 400px;
+            background-color: rgb(133, 198, 219);
+            margin: 100px auto;
+            border-radius: 20px;
+            position: relative;
+            box-shadow: rgba(0, 0, 0, 0.1) 5px 5px 5px 5px;
+        }
+
+        .icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 40px;
+            background-color: #FFCD41;
+            position: absolute;
+            right: 50px;
+            top: 50px;
+            box-shadow: rgba(255, 255, 0, 0.6) 0 0 10px 10px;
+            box-shadow: rgba(255, 255, 0, 0.2) 0 0 20px 20px;
+            animation: ani1 2s infinite;
+        }
+
+        .city {
+            color: white;
+            line-height: 80px;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            text-shadow: rgba(0, 0, 0, 0.1) 0 0 5px;
+        }
+
+        .content {
+            color: white;
+            line-height: 30px;
+            position: absolute;
+            bottom: 50px;
+            left: 50px;
+            text-shadow: rgba(0, 0, 0, 0.1) 0 0 5px;
+        }
+
+        @keyframes ani1 {
+            0% {
+                top: 50px;
+            }
+
+            50% {
+                top: 55px;
+            }
+
+            100% {
+                top: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <select name="" id="selector">
+
+        </select>
+        <div class="icon"></div>
+        <h1 class="city">彰化</h1>
+        <div class="content">
+
+        </div>
+    </div>
+    <script>
+        var locations = [];
+
+        fetch('https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/F-D0047-091?Authorization=CWB-B5282D9D-8FDD-40E9-AD48-B1DF3270465D&format=JSON')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (myJson) {
+                locations = myJson.cwbopendata.dataset.locations.location;
+                var temp = locations[5].weatherElement[0].time[0].elementValue.value;
+                var highest_temp = locations[5].weatherElement[3].time[0].elementValue.value;
+                var lowest_temp = locations[5].weatherElement[4].time[0].elementValue.value;
+                var rain = locations[5].weatherElement[9].time[0].elementValue.value;
+                var UV = locations[5].weatherElement[13].time[0].elementValue[0].value;
+                console.log(locations);
+
+                var content = document.querySelector('.content');
+
+                content.innerHTML = `
+                    <p class="temp">平均溫度: ${temp}度</p>
+                    <p class="hightest_temp">最高溫度: ${highest_temp}度</p>
+                    <p class="lowest_temp">最低溫度: ${lowest_temp}度</p>
+                    <p class="rain">下雨機率: ${rain}%</p>
+                    <p class="UV">紫外線指數: ${UV}</p>
+                `;
+
+                var selector = document.querySelector('#selector');
+
+                for (let index = 0; index < locations.length; index++) {
+                    const location = locations[index];
+                    selector = location.locationName;
+                    
+                }
+
+                selector.innerHTML = `
+                    <option value="${selector}">${selector}</option>
+                `;
+            });
+    </script>
+</body>
+
+</html>
