@@ -21,10 +21,10 @@
     </div>
     <nav class="navbar">
         <ul class="navbar-section">
-            <li class="section-btn a"><a href="#director" style="text-decoration:none" class="link">Director</a></li>
-            <li class="section-btn b"><a href="#info" style="text-decoration:none" class="link">Info</a></li>
-            <li class="section-btn c"><a href="#story" style="text-decoration:none" class="link">Story</a></li>
-            <li class="section-btn d"><a href="#cast" style="text-decoration:none" class="link">Cast</a></li>
+            <a href="#director" style="text-decoration:none" class="link a">Director</a>
+            <a href="#info" style="text-decoration:none" class="link b">Info</a>
+            <a href="#story" style="text-decoration:none" class="link c">Story</a>
+            <a href="#cast" style="text-decoration:none" class="link d">Cast</a>
         </ul>
     </nav>
     <section id="director">
@@ -99,11 +99,56 @@
             </div>
         </div>
     </section>
+    <div class="back_to_top">Back to top</div>
     <footer class="footer"></footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
     <script>
         var swiper = new Swiper('.swiper-container');
+        // 視窗滑動時的設定
+        $(window).scroll(
+            function () {
+                // 計算scrollTop的高度
+                var scrolltop = $(window).scrollTop();
+                console.log(scrolltop);
+                // 往下滑back_to_top才顯示
+                if (scrolltop > 200) {
+                    $('.back_to_top').addClass('show');
+                } else {
+                    $('.back_to_top').removeClass('show');
+                }
+            }
+        );
+        // 按下去時的設定
+        // $('.back_to_top').click(
+        //     function () {
+        //         $(window).scrollTop(0);
+        //     }
+        // );
+
+        // 設定back to top的scrollTop到0為smooth
+        $('.back_to_top').click(function () {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 500);
+
+            return false;
+        });
+
+        // 設定anchor link的滾動為smooth
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 </body>
+
 </html>

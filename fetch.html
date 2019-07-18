@@ -112,17 +112,16 @@
                     <p class="UV">紫外線指數: ${UV}</p>
                 `;
 
-                var selector = document.querySelector('#selector');
-
                 for (let index = 0; index < locations.length; index++) {
                     const location = locations[index];
-                    selector = location.locationName;
-                    
-                }
+                    placename = location.locationName;
 
-                selector.innerHTML = `
-                    <option value="${selector}">${selector}</option>
-                `;
+                    var selector = document.querySelector('#selector');
+
+                    selector.innerHTML += `
+                    <option value="${placename}">${placename}</option>
+                    `;
+                }
             });
     </script>
 </body>

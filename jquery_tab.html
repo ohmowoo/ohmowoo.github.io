@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #container {
+            max-width: 600px;
+            height: 400px;
+            margin: 0 auto;
+        }
+
+        .tab_section {
+            display: flex;
+        }
+
+        .tab_section .tab {
+            text-align: center;
+            padding: 10px 40px;
+            margin-right: 5px;
+            cursor: pointer;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .content_section .content {
+            background-color: rgb(192, 217, 245);
+            text-align: center;
+            line-height: 360px;
+            border-top-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .tab_section .tab {
+            background-color: rgb(231, 238, 245);
+        }
+
+        /* 選擇同一層的class要連在一起 */
+        .tab_section .tab.show {
+            background-color: rgb(192, 217, 245);
+        }
+
+        .content_section .content {
+            display: none;
+        }
+
+        .content_section .content.show {
+            display: block;
+        }
+
+        @media screen and (max-width: 375px) {
+            .tab_section {
+                display: block;
+            }
+
+            .tab_section .tab {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="tab_section">
+            <div class="tab show" data-tabid="1">AAA</div>
+            <div class="tab" data-tabid="2">BBB</div>
+            <div class="tab" data-tabid="3">CCC</div>
+        </div>
+        <div class="content_section">
+            <div class="content show" data-tabid="1">1</div>
+            <div class="content" data-tabid="2">2</div>
+            <div class="content" data-tabid="3">3</div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+    <script>
+        // 選到所有tab點擊事件
+        $('.tab').click(function () {
+
+            //    點擊到的tab之dataset的tabid中的名稱
+            //    this:表示點擊到的tab
+            var tabid = this.dataset.tabid;
+            console.log(tabid);
+
+            //    選到所有.content，然後移除class名稱show
+            $('.content').removeClass('show');
+
+            //    選擇點擊到的特定content中的dataset id名，加class名稱show
+            //    使用template literals反引號可將variable直接${}，不用加號
+            $(`.content[data-tabid="${tabid}"]`).addClass('show');
+
+            $('.tab').removeClass('show');
+            $(`.tab[data-tabid="${tabid}"]`).addClass('show');
+        });
+
+    </script>
+</body>
+
+</html>

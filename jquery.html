@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .btn {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="btn">Button</div>
+    <div class="btn">Button</div>
+    <div class="btn">Button</div>
+    <div class="btn">Button</div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <!-- 使用jquery的selector，裡面是矩陣，會全選。而且不用寫迴圈綁定每一個按鍵點擊事件，就可以直接每一個綁到。 -->
+
+    <script>
+        $('.btn').click(function () {
+            // this可以指定一個元素，但是只用this會呼叫原生js。所以要用選擇器$()才可以下jquery指令。
+            $(this).toggleClass('btn');
+        });
+    </script>
+</body>
+
+</html>
