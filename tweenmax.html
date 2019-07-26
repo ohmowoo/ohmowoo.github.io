@@ -12,6 +12,8 @@
             height: 50px;
             border-radius: 6px;
             margin-top: 4px;
+            position: absolute;
+            left: 10px;
         }
 
         .green {
@@ -39,15 +41,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"> </script>
 
     <script>
-        var myTween = TweenMax.to(".box", 10, {
+        // var myTween = TweenMax.to(".box", 10, {
             
-            x: function (index, target) {
-                console.log(index, target);
-                return (index + 1) * 100 // 100, 200, 300
+        //     x: function (index, target) {
+        //         console.log(index, target);
+        //         return (index + 1) * 100 // 100, 200, 300
                
-            }
+        //     }
             
-        })
+        // })
+
+        var tm = new TimelineMax();
+        tm.to('.box',1,{left: 20})
+        tm.to('.box',1,{top:10})
+        tm.to('.box',1,{opcaity:0});
     </script>
 </body>
 
