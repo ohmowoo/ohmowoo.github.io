@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .shape {
+            position: fixed;
+        }
+
+        #micro {
+            top: 60px;
+            left: 50%;
+            margin-left: -1550px;
+        }
+
+        #fil1 {
+            top: -2420px;
+            left: 50%;
+            margin-left: -810px;
+        }
+
+        #micro2 {
+            top: -630px;
+            left: 50%;
+            margin-left: 460px;
+        }
+
+        #fil2 {
+            top: 490px;
+            left: 50%;
+            margin-left: -1120px;
+        }
+
+        img {
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="micro" class="shape" data-stellar-ratio="0.05" style="transform: translate3d(0px, -17.5px, 0px);">
+        <img width="1533" src="pic/micro.png" alt="Micro">
+    </div>
+    <div id="fil1" class="shape" data-stellar-ratio="-0.26" style="transform: translate3d(0px, 91px, 0px);">
+        <img width="1677" src="pic/long_fil.png" alt="Long Fil">
+    </div>
+    <div id="micro2" class="shape" data-stellar-ratio="0.12" style="transform: translate3d(0px, -42px, 0px);">
+        <img width="1533" src="pic/micro.png" alt="Micro">
+    </div>
+
+    <div id="fil2" class="shape" data-stellar-ratio="0.14" style="transform: translate3d(0px, -49px, 0px);">
+        <img width="1677" src="pic/long_fil.png" alt="Long Fil">
+    </div>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="jquery.stellar.min.js"></script>
+    <script>
+        function offsetMenu() {
+            if ($(window).width() >= 1280 && $(window).height() >= 730) {
+                maxmargin = 920;
+                minmargin = 720;
+            } else {
+                maxmargin = 720;
+                minmargin = 564;
+            }
+
+            if ($(window).scrollTop() <= $('.artiste').last().offset().top - 286 && $(window).scrollTop() >= $('#programmation').offset().top) {
+                $('#prog_nav, #prog_content').addClass('affix');
+            } else {
+                $('#prog_nav, #prog_content').removeClass('affix');
+            }
+            if ($(window).scrollTop() >= $('.artiste').last().offset().top - 286) {
+                $('#prog_nav, #prog_content').addClass('affix-bottom');
+                $('#prog_nav').css({
+                    'top': $('.artiste').last().position().top
+                });
+            } else {
+                $('#prog_nav, #prog_content').removeClass('affix-bottom');
+                $('#prog_nav').removeAttr('style');
+            }
+
+
+            var winscroll = $(window).scrollTop();
+
+            var ratio = (winscroll - 600) / 3000;
+            var revratio = 1 - ratio;
+
+            var marginratio = (winscroll + 1897) / 3000;
+            var revmarginratio = 1 - marginratio;
+
+            var maxwidth = 353;
+            var minwidth = 298;
+
+            var newwidth = revratio * maxwidth;
+            if (newwidth <= minwidth) {
+                newwidth = minwidth;
+            }
+            if (newwidth >= maxwidth) {
+                newwidth = maxwidth;
+            }
+
+            var newmargin = marginratio * maxmargin;
+            if (newmargin <= minmargin) {
+                newmargin = minmargin;
+            }
+            if (newmargin >= maxmargin) {
+                maxed = true;
+                newmargin = maxmargin;
+            } else {
+                maxed = false;
+            }
+
+            // var opacityratio = (maxmargin-newmargin)/(maxmargin-minmargin);
+
+            // $('#date, #lieu').css('opacity', parseFloat(opacityratio));
+            $('#logonav').css('margin-left', newmargin);
+            $('#logo').width(newwidth);
+
+            if (maxed) {
+                // $('.big_btn').stop().fadeOut(250, function(){
+                $(document.documentElement).addClass('menu_maxed');
+                // $('.small_btn').stop().fadeIn();
+                // $('#date, #lieu').slideUp(250, 'linear');
+                // });
+            } else {
+                // $('.small_btn').stop().fadeOut(250, function(){
+                $(document.documentElement).removeClass('menu_maxed');
+                // $('.big_btn').stop().fadeIn();
+                // $('#date, #lieu').slideDown(250, 'linear');
+                // });
+            }
+        }
+        $(document).ready(function () {
+            offsetMenu();
+            // prepositionShapes();
+
+            // stellar parallax effect
+            $(window).stellar({
+                positionProperty: 'transform',
+                hideDistantElements: false
+            });
+
+            // small "slider" iterations
+            var sliderInterval = setSliderInterval();
+            $('#slider_nav li a').on('click', function (ev) {
+                var slideNum = parseInt($(this).attr('href').replace('#', ''));
+
+                $('#slider .slide.active').removeClass('active');
+                $('#slider_nav li.active').removeClass('active');
+
+                $('#slider .slide').eq(slideNum - 1).addClass('active');
+                $('#slider_nav li').eq(slideNum - 1).addClass('active');
+
+
+                clearInterval(sliderInterval);
+                sliderInterval = setSliderInterval();
+                ev.preventDefault();
+            });
+        });
+
+        $(window).on('load', function () {
+            offsetMenu();
+            // repositionShapes();
+            // animated scrollto
+            // var filter = '#block-';
+
+            $('#logo').on('click', function (ev) {
+                scrollToElement($(document.body));
+
+                ev.preventDefault();
+            });
+
+            if (window.location.hash != '') {
+                var el = $(window.location.hash);
+                window.setTimeout(function () {
+                    scrollToElement(el);
+                }, 250);
+            }
+
+            $('#main_menu ul li.navitem a').on('click', function (ev) {
+                var id = '#' + $(this).attr('href').replace('.php', '');
+                var el = $(id);
+                scrollToElement(el);
+                ev.preventDefault();
+            });
+
+            $('#prog_nav ul li a').on('click', function (ev) {
+                var el = $($(this).attr('href'));
+                scrollToElement(el, 146);
+                ev.preventDefault();
+            });
+
+
+            // scrollspy
+
+        });
+
+        $(window).on('scroll', function (ev) {
+            offsetMenu();
+
+
+            // look if elements of nav are up or down to change the arrow accordingly
+            $('#main_menu ul li.navitem a').each(function (index, el) {
+                if ($(document.body).scrollTop() > $('#' + $(this).attr('href').replace('.php', '')).offset().top + 400) {
+                    $(el).addClass('up');
+                } else {
+                    $(el).removeClass('up');
+                }
+            });
+        });
+
+    </script>
+</body>
+
+</html>
