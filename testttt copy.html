@@ -42,22 +42,26 @@
 </head>
 
 <body>
-    <div id="micro" class="shape" data-stellar-ratio="0.05">
+    <div id="micro" class="shape" data-paroller-factor="0.05" data-paroller-type="foreground"
+        data-paroller-direction="vertical">
         <img width="1533" src="pic/micro.png" alt="Micro">
     </div>
-    <div id="fil1" class="shape" data-stellar-ratio="-0.26">
+    <div id="fil1" class="shape" data-paroller-factor="-0.26" data-paroller-type="foreground"
+        data-paroller-direction="vertical">
         <img width="1677" src="pic/long_fil.png" alt="Long Fil">
     </div>
-    <div id="micro2" class="shape" data-stellar-ratio="0.12">
+    <div id="micro2" class="shape" data-paroller-factor="0.12" data-paroller-type="foreground"
+        data-paroller-direction="vertical">
         <img width="1533" src="pic/micro.png" alt="Micro">
     </div>
-    <div id="fil2" class="shape" data-stellar-ratio="0.14">
+    <div id="fil2" class="shape" data-paroller-factor="0.14" data-paroller-type="foreground"
+        data-paroller-direction="vertical">
         <img width="1677" src="pic/long_fil.png" alt="Long Fil">
     </div>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="jquery.stellar.min.js"></script>
+    <script src="jquery.paroller.min.js"></script>
     <script>
-        $('.shape').stellar()
+        $('.shape').paroller();
     </script>
 </body>
 
