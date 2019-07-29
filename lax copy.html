@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            height: 200vh;
+        }
+
+        .shape {
+            width: 900px;
+            height: 70vh;
+            background-image: url(pic/a.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="micro" class="shape" data-lax-opacity="0 1, vh 10"></div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/lax.js"></script>
+    <script>
+        window.onload = function () {
+            lax.setup() // init
+
+            const updateLax = () => {
+                lax.update(window.scrollY)
+                window.requestAnimationFrame(updateLax)
+            }
+
+            window.requestAnimationFrame(updateLax)
+        }
+    </script>
+</body>
+
+</html>
