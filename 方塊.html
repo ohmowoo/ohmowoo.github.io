@@ -11,7 +11,12 @@
             margin: 0;
         }
 
-        img {
+        html,
+        body {
+            background-color: black;
+        }
+
+        video {
             clip-path: url(#svgPath);
             height: 100vh;
         }
@@ -23,25 +28,34 @@
 </head>
 
 <body>
-    <img src="pic/1920.jpg" alt="">
+    <video width="100%" height="100vh" preload="true" autoplay loop>
+        <source src="video/promo720.mp4" type="video/mp4" />
+        <source src="video/promo720.ogg" type="video/ogg" />
+    </video>
+
+    <!-- <iframe width="100%" height="100vh" src="https://www.youtube.com/embed/OK_Fuf45c8Y" frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+    <!-- <img src="pic/1920.jpg" alt=""> -->
     <a href="">
-            <svg height="0" width="0">
-                    <defs>
-                        <clipPath id="svgPath">
-                            <rect x="45vw" y="25vh" stroke="#000000" stroke-miterlimit="10" width="100" height="50">
-                                <animate attributeName="width" from="100" to="100vw" begin="" dur="2s" fill="freeze" />
-                                <animate attributeName="height" from="50" to="100vh" begin="" dur="2s" fill="freeze" />
-                                <animate attributeName="x" from="45vw" to="0" begin="" dur="2s" fill="freeze" />
-                                <animate attributeName="y" from="25vh" to="0" begin="" dur="2s" fill="freeze" />
-                            </rect>
-                        </clipPath>
-                    </defs>
-                </svg>
+        <svg height="0" width="0">
+            <defs>
+                <clipPath id="svgPath">
+                    <rect x="45vw" y="25vh" stroke="#000000" stroke-miterlimit="10" width="100" height="50">
+                        <animate attributeName="width" from="100" to="100vw" begin="1s" dur="8s" fill="freeze" />
+                        <animate attributeName="height" from="50" to="100vh" begin="1s" dur="8s" fill="freeze" />
+                        <animate attributeName="x" from="45vw" to="0" begin="1s" dur="8s" fill="freeze" />
+                        <animate attributeName="y" from="25vh" to="0" begin="1s" dur="8s" fill="freeze" />
+                    </rect>
+                    <text x="0" y="300" textLength="800px" lengthAdjust="spacing" font-family="Vollkorn"
+                        font-size="230px" font-weight="700" font-style="italic"> NOIZ Studio </text>
+                </clipPath>
+            </defs>
+        </svg>
     </a>
-    
+
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script>
-        $('img').click(function () {
+        $('video').click(function () {
             $('svg animate').attr("begin", "0.5s");
             console.log(1111);
 
