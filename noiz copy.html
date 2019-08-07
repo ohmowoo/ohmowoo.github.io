@@ -26,6 +26,30 @@
             margin: 0 auto;
         }
 
+        .navsection{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .logo{
+            line-height: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        span{
+            color: white;
+            font-size: 20px;
+            font-family: sans-serif;
+        }
+
+        #uppertxt{
+            letter-spacing: 2.3px;
+        }
+
         .navbtn {
             display: flex;
             justify-content: flex-end;
@@ -54,7 +78,7 @@
             font-family: "Sans Serif", "Microsoft JhengHei";
         }
 
-        section .container{
+        section .container {
             height: 100vh;
         }
     </style>
@@ -63,15 +87,21 @@
 <body>
     <nav>
         <div class="container">
-            <div class="navbtn">
-                <li>關於NOIZ</li>
-                <li>作品</li>
-                <li>設備</li>
-                <li>名人推薦</li>
-                <li>服務項目</li>
-                <li>費用說明</li>
-                <li>最新消息</li>
-                <li>聯絡NOIZ</li>
+            <div class="navsection">
+                <div class="logo">
+                    <span id="uppertxt">NOIZ</span>
+                    <span>Studio</span>
+                </div>
+                <div class="navbtn">
+                    <li>關於NOIZ</li>
+                    <li>作品</li>
+                    <li>設備</li>
+                    <li>名人推薦</li>
+                    <li>服務項目</li>
+                    <li>費用說明</li>
+                    <li>最新消息</li>
+                    <li>聯絡NOIZ</li>
+                </div>
             </div>
         </div>
     </nav>
@@ -136,11 +166,12 @@
         </div>
     </section>
     <footer>
-        
+
     </footer>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script>
-
+        var video = document.querySelector('video');
+        video.playbackRate = 0.6;
     </script>
 </body>
 
