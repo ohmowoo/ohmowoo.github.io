@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <select name="" id="selector">
+        
+    </select>
+    <div class="card">
+
+    </div>
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+
+    <script>
+        var locations = [];
+
+        $(function () {
+            $.ajax({
+                type: "GET",
+                url: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-B5282D9D-8FDD-40E9-AD48-B1DF3270465D",
+                dataType: "json",
+
+                error: function (e) {
+                    console.log('error');
+                },
+
+                success: function (e) {
+                    var json = e;
+                    locations = json.records.location;
+
+                    for (let index = 0; index < locations.length; index++) {
+                        const location = locations[index];
+
+                        const temp = locations[index].weatherElement[2].time[0].parameter.parameterName;
+                        var z = [location.locationName, temp];
+                        console.log(z);
+                        
+                        $('#selector').append(`<option value="${location.locationName}">${location.locationName}</option>`);
+                        $('.card').html(`<h1>${temp}度</h1>`); 
+                    }
+
+                    $('#selector').change(function () {
+                        console.log($(this).val());
+                        $('.card').html(`<h1>${$(this).val()}度</h1>`);
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
